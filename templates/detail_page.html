@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ page.title }}
+{% endblock %}
+
+
+{% block content %}
+
+{% if page %}
+<div class="">
+    <h2>{{ page.title }}</h2>
+    <hr>
+    <p>{{ page.context }}</p>
+    <span class="text-muted">Date: {{ page.created_at }}</span>
+    <span class="text-warning">Author: {{ page.author.username }}</span>
+</div>
+{% else %}
+<center>
+    <h3>Page not found</h3>
+</center>
+{% endif %}
+
+
+{% endblock %}

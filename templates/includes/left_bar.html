@@ -1,0 +1,28 @@
+<nav class="col-md-2 d-none d-md-block bg-light sidebar mt-3" style="height: 91vh;">
+    <div class="sidebar-sticky">
+        <form class="d-flex" method="get" action="">
+            <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+            <button class="btn btn-info" type="submit">Search</button>
+        </form>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'all_pages' %}">
+                    All Pages
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'random_page' %}">
+                    Random Page
+                </a>
+            </li>
+            
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'create' %}">
+                    Create New Page
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

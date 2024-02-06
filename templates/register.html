@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Registration Form
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container d-flex justify-content-center mt-5">
+    <div class="card p-3 w-25">
+        <h3 class="mb-4 text-center">Registration Form</h3>
+        <form method="post">
+        {% csrf_token %}
+
+        <input class="form-control mb-3" type="text" placeholder="Username" name="username">
+        <input class="form-control mb-3" type="password" placeholder="Password" name="password1">
+        <input class="form-control mb-3" type="password" placeholder="Password Again" name="password2">
+
+        <button class="btn btn-success" type="submit">Done</button>
+    </form>
+    </div>
+
+</div>
+
+{% endblock %}
+
+

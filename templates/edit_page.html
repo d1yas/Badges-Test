@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Edit Page
+{% endblock %}
+
+
+{% block content %}
+
+<div class="card">
+    <form method="post" class="p-3">
+        <h3 class="text-center">Edit Page Form</h3>
+        {% csrf_token %}
+
+        <input value="{{ page.title }}" class="form-control mb-3" type="text" placeholder="Title" name="title">
+        <textarea class="form-control mb-3" rows="8" placeholder="Context" name="content">{{ page.content }}</textarea>
+
+        <button class="btn btn-success mt-2" type="submit">Update</button>
+    </form>
+</div>
+
+{% endblock %}

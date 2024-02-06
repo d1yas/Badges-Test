@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+All Page
+{% endblock %}
+
+
+{% block content %}
+<div class="row">
+    {% if pages %}
+        {% for p in pages %}
+        <div class="col-3 m-3">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title mb-4">
+                        <a href="{% url 'detail_page' p.id %}">{{ p.title }}</a>
+                    </h5>
+                    
+                    {% if request.user == p.author %}
+                    <a href="{% url 'edit_page' p.id %}" class="btn btn-info">Edit</a>
+                    <a href="{% url 'delete_page' p.id %}" class="btn btn-danger">Delete</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+    <center>
+        <h3>Pages not found</h3>
+    </center>
+    {% endif %}
+</div>
+
+
+{% endblock %}
